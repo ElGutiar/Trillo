@@ -18,6 +18,11 @@
                 margin-bottom: 0;
                 border-right: 1px solid var(--color-grey-dark-2);
         }
+
+            @media only screen and (max-width: $bp-micro) {
+                @include flexCenter;
+                font-size: 1.3rem;
+            }
         }
 
         @media only screen and (max-width: $bp-medium) {
@@ -89,6 +94,7 @@
     font-size: 1.2rem;
     text-align: center;
     color: var(--color-grey-light-4);
+    background-color: var(--color-grey-dark-1);
     padding: 2.5rem;
 
     @media only screen and (max-width: $bp-medium) {

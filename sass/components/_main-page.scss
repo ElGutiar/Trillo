@@ -41,6 +41,7 @@
         display: flex;
 
         @media only screen and (max-width: $bp-mini) {
+            margin-top: 1rem;
             margin-right: 0;
             order: -1;
         }
@@ -87,6 +88,7 @@
 
         @media only screen and (max-width: $bp-mini) {
             margin-left: 0rem;
+            margin-top: .5rem;
         }
     }
 
@@ -155,18 +157,34 @@
     border-bottom: var(--line);
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
+    color: var(--color-primary);
+
+    @media only screen and (max-width: $bp-mini) {
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 2.2rem 0;
+        padding: 2.2rem 0;
+    }
 
     &__item {
         flex: 0 0 50%;
         margin-bottom: .7rem;
+
+        @media only screen and (max-width: $bp-mini) {
+            width: 100%;
+            flex: 0 0 100%;
+        }
     }
 
     &__item::before {
         content: "";
         display: inline-block;
-        height: 2rem;
-        width: 2rem;
+        height: 1rem;
+        width: 1rem;
         margin-right: .7rem;
+        z-index: 100;
+        position: relative;
         
         // background-image: url(../img/chevron-thin-right.svg);
         // background-size: cover;
@@ -223,14 +241,19 @@
     }
 
     &__text {
-        margin-bottom: 2rem;
         position: relative;
         z-index: 2;
+        
     }
 
     &__user {
         display: flex;
         align-items: center;
+        margin-top: 1.3rem;
+
+        @media only screen and (max-width: $bp-medium) {
+            margin-top: 1rem;
+        }
     }
 
     &__photo {
@@ -260,6 +283,10 @@
         color: var(--color-primary);
         font-size: 2.2rem;
         font-weight: 300;
+
+        @media only screen and (max-width: $bp-small) {
+            margin-right: 2rem;
+        }
     }
 
     &::before {
@@ -284,11 +311,19 @@
         padding: 2.5rem 0;
     }
 
+    @media only screen and (max-width: $bp-small) {
+        padding: 1.5rem 0 3rem 0;
+    }
+
     &__book-now {
         text-transform: uppercase;
         font-size: 2rem;
         font-weight: 300;
         margin-bottom: 2.5rem;
+
+        @media only screen and (max-width: $bp-small) {
+            margin: 1.4rem 2rem;
+        }
     }
 }
 

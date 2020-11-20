@@ -130,6 +130,16 @@ body {
   flex-direction: column;
   align-items: center; }
 
+.footer {
+  display: none; }
+  @media only screen and (max-width: 56.25em) {
+    .footer {
+      width: 100%;
+      height: auto;
+      display: block; }
+      .footer .legal {
+        display: block; } }
+
 .logo {
   height: 3.25rem;
   margin-left: 2rem; }
@@ -232,6 +242,12 @@ body {
         .side-nav__item:not(:last-child) {
           margin-bottom: 0;
           border-right: 1px solid var(--color-grey-dark-2); } }
+      @media only screen and (max-width: 21.875em) {
+        .side-nav__item:not(:last-child) {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 1.3rem; } }
     @media only screen and (max-width: 56.25em) {
       .side-nav__item {
         flex: 1; } }
@@ -283,6 +299,7 @@ body {
   font-size: 1.2rem;
   text-align: center;
   color: var(--color-grey-light-4);
+  background-color: var(--color-grey-dark-1);
   padding: 2.5rem; }
   @media only screen and (max-width: 56.25em) {
     .legal {
@@ -320,6 +337,7 @@ body {
     display: flex; }
     @media only screen and (max-width: 28.125em) {
       .overview__stars {
+        margin-top: 1rem;
         margin-right: 0;
         order: -1; } }
   .overview__icon-star, .overview__icon-location {
@@ -354,7 +372,8 @@ body {
         padding: 0 1.5rem; } }
     @media only screen and (max-width: 28.125em) {
       .overview__rating {
-        margin-left: 0rem; } }
+        margin-left: 0rem;
+        margin-top: .5rem; } }
   .overview__rating-average {
     font-size: 2.25rem;
     font-weight: 300;
@@ -400,16 +419,30 @@ body {
   border-top: var(--line);
   border-bottom: var(--line);
   display: flex;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  align-items: center;
+  color: var(--color-primary); }
+  @media only screen and (max-width: 28.125em) {
+    .list {
+      flex-direction: column;
+      align-items: flex-start;
+      margin: 2.2rem 0;
+      padding: 2.2rem 0; } }
   .list__item {
     flex: 0 0 50%;
     margin-bottom: .7rem; }
+    @media only screen and (max-width: 28.125em) {
+      .list__item {
+        width: 100%;
+        flex: 0 0 100%; } }
   .list__item::before {
     content: "";
     display: inline-block;
-    height: 2rem;
-    width: 2rem;
+    height: 1rem;
+    width: 1rem;
     margin-right: .7rem;
+    z-index: 100;
+    position: relative;
     background-color: var(--color-primary);
     -webkit-mask-image: url(../img/chevron-thin-right.svg);
     -webkit-mask-size: cover;
@@ -447,12 +480,15 @@ body {
       padding: 2rem;
       margin-bottom: 3rem; } }
   .review__text {
-    margin-bottom: 2rem;
     position: relative;
     z-index: 2; }
   .review__user {
     display: flex;
-    align-items: center; }
+    align-items: center;
+    margin-top: 1.3rem; }
+    @media only screen and (max-width: 56.25em) {
+      .review__user {
+        margin-top: 1rem; } }
   .review__photo {
     height: 4.5rem;
     width: 4.5rem;
@@ -472,6 +508,9 @@ body {
     color: var(--color-primary);
     font-size: 2.2rem;
     font-weight: 300; }
+    @media only screen and (max-width: 37.5em) {
+      .review__rating {
+        margin-right: 2rem; } }
   .review::before {
     content: "\201C";
     position: absolute;
@@ -489,11 +528,17 @@ body {
   @media only screen and (max-width: 56.25em) {
     .cta {
       padding: 2.5rem 0; } }
+  @media only screen and (max-width: 37.5em) {
+    .cta {
+      padding: 1.5rem 0 3rem 0; } }
   .cta__book-now {
     text-transform: uppercase;
     font-size: 2rem;
     font-weight: 300;
     margin-bottom: 2.5rem; }
+    @media only screen and (max-width: 37.5em) {
+      .cta__book-now {
+        margin: 1.4rem 2rem; } }
 
 .btn {
   font-size: 1.5rem;
