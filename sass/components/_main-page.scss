@@ -1,10 +1,6 @@
 .gallery {
     display: flex;
 
-    &__item {
-
-    }
-
     &__photo {
         width: 100%;
         display: block;
@@ -16,17 +12,38 @@
     align-items: center;
     border-bottom: var(--line);
 
+    @media only screen and (max-width: $bp-mini) {
+        flex-direction: column;
+
+        & > * {
+            padding: .3rem 0 !important;
+        }
+    }
+
     &__heading {
         font-size: 2.25rem;
         font-weight: 300;
         text-transform: uppercase;
         letter-spacing: 1px;
         padding: 1.5rem 3rem;
+
+        @media only screen and (max-width: $bp-small) {
+            font-size: 1.8rem;
+        }
+
+        @media only screen and (max-width: $bp-mini) {
+            font-size: 2rem;
+        }
     }
 
     &__stars {
         margin-right: auto;
         display: flex;
+
+        @media only screen and (max-width: $bp-mini) {
+            margin-right: 0;
+            order: -1;
+        }
     }
 
     &__icon-star,
@@ -34,12 +51,21 @@
         width: 1.75rem;
         height: 1.75rem;
         fill: var(--color-primary);
+
+        @media only screen and (max-width: $bp-mini) {
+            width: 2rem;
+            height: 2rem;
+        }
     }
 
     &__location {
         font-size: 1.2rem;
         display: flex;
         align-items: center;
+
+        @media only screen and (max-width: $bp-mini) {
+            font-size: 1.4;
+        }
     }
 
     &__icon-location {
@@ -54,17 +80,33 @@
         @include flexCenter;
         align-self: stretch;
         flex-direction: column;
+
+        @media only screen and (max-width: $bp-small) {
+            padding: 0 1.5rem;
+        }
+
+        @media only screen and (max-width: $bp-mini) {
+            margin-left: 0rem;
+        }
     }
 
     &__rating-average {
         font-size: 2.25rem;
         font-weight: 300;
         margin-bottom: -3px;
+
+        @media only screen and (max-width: $bp-small) {
+            font-size: 1.8rem;
+        }
     }
 
     &__rating-count {
         font-size: .8rem;
         text-transform: uppercase;
+
+        @media only screen and (max-width: $bp-small) {
+            font-size: .5rem;
+        }
     }
 }
 
@@ -144,13 +186,13 @@
     display: flex;
     align-items: center;
 
-
     &__count {
         margin-right: auto;
     }
-
+ 
     &__friends {
-
+        display: flex;
+        margin-left: .4rem;
     }
 
     &__photo {
@@ -161,7 +203,7 @@
         border: 3px solid #fff;
 
         &:not(:last-child) {
-            margin-right: -1.5rem;
+            margin-right: -2rem;
         }
     }
 }
@@ -174,6 +216,11 @@
     margin-bottom: 3.5rem;
     position: relative;
     overflow: hidden;
+    
+    @media only screen and (max-width: $bp-medium) {
+        padding: 2rem;
+        margin-bottom: 3rem;
+    }
 
     &__text {
         margin-bottom: 2rem;
@@ -225,5 +272,71 @@
         color: var(--color-grey-light-2);
         font-family: sans-serif;
         z-index: 1;
+    }
+}
+
+///////Call to action
+.cta {
+    padding: 3.5rem 0;
+    text-align: center;
+
+    @media only screen and (max-width: $bp-medium) {
+        padding: 2.5rem 0;
+    }
+
+    &__book-now {
+        text-transform: uppercase;
+        font-size: 2rem;
+        font-weight: 300;
+        margin-bottom: 2.5rem;
+    }
+}
+
+.btn {
+    font-size: 1.5rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    border: none;
+    border-radius : 100px;
+    background-image: linear-gradient(to right, var(--color-primary-light), var(--color-primary-dark));
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+
+    & > * {
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        transition: all .2s;
+    }
+
+    &__visible {
+        padding: 2rem 7.5rem;
+    }
+
+    &__invisible {
+        position: absolute;
+        left: 0;
+        top: -100%;
+        padding: 2rem 0;
+    }
+
+    &:hover {
+        background-image: linear-gradient(to left, var(--color-primary-light), var(--color-primary-dark));
+
+    }
+
+    &:hover &__visible {
+        transform: translateY(100%);
+    }
+
+    &:hover &__invisible {
+        top: 0;
+    }
+
+    &:focus {
+        outline: none;
+        animation: pulsate 1s infinite;
     }
 }
